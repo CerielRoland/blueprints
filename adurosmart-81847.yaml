@@ -1,37 +1,37 @@
 blueprint:
-  name: AduroSmart 81847
-  description: Blueprint for the AduroSmart 81847
+  name: AduroSmart - Remote scene controller
+  description: Blueprint for the AduroSmart Remote scene controller
   domain: automation
   input:
     mqtt_device:
-      name: MQTT apparaat
-      description: Selecteer het MQTT apparaat
+      name: AduroSmart device
+      description: Select the device
       selector:
         device:
           integration: mqtt
           manufacturer: AduroSmart
           model: Remote scene controller
     command_toggle:
-      name: Command bij toggle
-      description: Actie uit te voeren bij 'toggle'
+      name: Command for pressing power button
+      description: Action to perform on pressing power button (command: 'toggle')
       default: []
       selector:
         action: {}
     command_recall_253:
-      name: Command bij recall_253
-      description: Actie uit te voeren bij 'recall_253'
+      name: Command for pressing 1
+      description: Action to perform on pressing 1 button (command: 'recall_253')
       default: []
       selector:
         action: {}
     command_recall_254:
-      name: Command bij recall_254
-      description: Actie uit te voeren bij 'recall_254'
+      name: Command for pressing 2
+      description: Action to perform on pressing 2 button (command: 'recall_254')
       default: []
       selector:
         action: {}
     command_recall_255:
-      name: Command bij recall_255
-      description: Actie uit te voeren bij 'recall_255'
+      name: Command for pressing 3
+      description: Action to perform on pressing 3 button (command: 'recall_255')
       default: []
       selector:
         action: {}
