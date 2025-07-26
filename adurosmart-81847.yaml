@@ -1,0 +1,82 @@
+blueprint:
+  name: AduroSmart 81847
+  description: Blueprint for the AduroSmart 81847
+  domain: automation
+  input:
+    mqtt_device:
+      name: MQTT apparaat
+      description: Selecteer het MQTT apparaat
+      selector:
+        device:
+          integration: mqtt
+          manufacturer: AduroSmart
+          model: Remote scene controller
+    command_toggle:
+      name: Command bij toggle
+      description: Actie uit te voeren bij 'toggle'
+      default: []
+      selector:
+        action: {}
+    command_recall_253:
+      name: Command bij recall_253
+      description: Actie uit te voeren bij 'recall_253'
+      default: []
+      selector:
+        action: {}
+    command_recall_254:
+      name: Command bij recall_254
+      description: Actie uit te voeren bij 'recall_254'
+      default: []
+      selector:
+        action: {}
+    command_recall_255:
+      name: Command bij recall_255
+      description: Actie uit te voeren bij 'recall_255'
+      default: []
+      selector:
+        action: {}
+
+trigger:
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: toggle
+    id: toggle
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: recall_253
+    id: recall_253
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: recall_254
+    id: recall_254
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: recall_255
+    id: recall_255
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: toggle
+        sequence: !input command_toggle
+      - conditions:
+          - condition: trigger
+            id: recall_253
+        sequence: !input command_recall_253
+      - conditions:
+          - condition: trigger
+            id: recall_254
+        sequence: !input command_recall_254
+      - conditions:
+          - condition: trigger
+            id: recall_255
+        sequence: !input command_recall_255
