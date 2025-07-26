@@ -13,25 +13,25 @@ blueprint:
           model: Remote scene controller
     command_toggle:
       name: Command for pressing power button
-      description: Action to perform on pressing power button (command: 'toggle')
+      description: Action to perform on pressing power button - command: 'toggle'
       default: []
       selector:
         action: {}
     command_recall_253:
       name: Command for pressing 1
-      description: Action to perform on pressing 1 button (command: 'recall_253')
+      description: Action to perform on pressing 1 button - command: 'recall_253'
       default: []
       selector:
         action: {}
     command_recall_254:
       name: Command for pressing 2
-      description: Action to perform on pressing 2 button (command: 'recall_254')
+      description: Action to perform on pressing 2 button - command: 'recall_254'
       default: []
       selector:
         action: {}
     command_recall_255:
       name: Command for pressing 3
-      description: Action to perform on pressing 3 button (command: 'recall_255')
+      description: Action to perform on pressing 3 button - command: 'recall_255'
       default: []
       selector:
         action: {}
