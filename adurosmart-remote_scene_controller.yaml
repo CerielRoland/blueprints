@@ -1,5 +1,5 @@
 blueprint:
-  name: AduroSmart - Remote scene controller
+  name: AduroSmart Remote scene controller
   description: Blueprint for the AduroSmart Remote scene controller
   domain: automation
   input:
