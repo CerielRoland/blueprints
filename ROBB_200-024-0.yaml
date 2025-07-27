@@ -60,7 +60,7 @@ blueprint:
       selector:
         action: {}
     command_recall_1_1:
-      name: Action for 'recall_1_1
+      name: Action for 'recall_1_1'
       description: Select the action for 'recall_1_1'
       default: []
       selector:
@@ -163,7 +163,7 @@ action:
           - condition: trigger
             id: off_2
         sequence: !input command_off_2
-        - conditions:
+      - conditions:
           - condition: trigger
             id: on_3
         sequence: !input command_on_3
