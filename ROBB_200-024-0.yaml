@@ -1,0 +1,181 @@
+blueprint:
+  name: ROBB ROB_200-024-0
+  description: Blueprint for the ROBB_200-024-0 remote control, remote has a general on and off button, 4 seperate device buttons and scene 1 and scene 2 button.
+  domain: automation
+  input:
+    mqtt_device:
+      name: Device
+      description: Select the device
+      selector:
+        device:
+          integration: mqtt
+          manufacturer: ROBB
+           model_id: ROB_200-024-0
+    command_on_1:
+      name: Action for 'on_1'
+      description: Select the action for 'on_1'
+      default: []
+      selector:
+        action: {}
+    command_off_1:
+      name: Action for 'off_1'
+      description: Select the action for 'off_1'
+      default: []
+      selector:
+        action: {}
+    command_on_2:
+      name: Action for 'on_2'
+      description: Select the action for 'on_2'
+      default: []
+      selector:
+        action: {}
+    command_off_2:
+      name: Action for 'off_2'
+      description: Select the action for 'off_2'
+      default: []
+      selector:
+        action: {}
+    command_on_3:
+      name: Action for 'on_3'
+      description: Select the action for 'on_3'
+      default: []
+      selector:
+        action: {}
+    command_off_3:
+      name: Action for 'off_3'
+      description: Select the action for 'off_3'
+      default: []
+      selector:
+        action: {}
+    command_on_4:
+      name: Action for 'on_4'
+      description: Select the action for 'on_4'
+      default: []
+      selector:
+        action: {}
+    command_off_4:
+      name: Action for 'off_4'
+      description: Select the action for 'off_4'
+      default: []
+      selector:
+        action: {}
+    command_recall_1_1:
+      name: Action for 'recall_1_1
+      description: Select the action for 'recall_1_1'
+      default: []
+      selector:
+        action: {}
+    command_recall_2_1:
+      name: Action for 'recall_2_1'
+      description: Select the action for 'recall_2_1'
+      default: []
+      selector:
+        action: {}
+
+mode: parallel
+max: 10  # Optioneel: maximaal aantal tegelijk actieve uitvoeringen
+
+trigger:
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: recall_1_1
+    id: recall_1_1
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: recall_2_1
+    id: recall_2_1
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: on_1
+    id: on_1
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: off_1
+    id: off_1
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: on_2
+    id: on_2
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: off_2
+    id: off_2
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: on_3
+    id: on_3
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: off_3
+    id: off_3
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: on_1
+    id: on_1
+  - platform: device
+    device_id: !input mqtt_device
+    domain: mqtt
+    type: action
+    subtype: off_4
+    id: off_4
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: recall_1_1
+        sequence: !input command_recall_1_1
+      - conditions:
+          - condition: trigger
+            id: recall_2_1
+        sequence: !input command_recall_2_1
+      - conditions:
+          - condition: trigger
+            id: on_1
+        sequence: !input command_on_1
+      - conditions:
+          - condition: trigger
+            id: off_1
+        sequence: !input command_off_1
+      - conditions:
+          - condition: trigger
+            id: on_2
+        sequence: !input command_on_2
+      - conditions:
+          - condition: trigger
+            id: off_2
+        sequence: !input command_off_2
+        - conditions:
+          - condition: trigger
+            id: on_3
+        sequence: !input command_on_3
+      - conditions:
+          - condition: trigger
+            id: off_3
+        sequence: !input command_off_3
+      - conditions:
+          - condition: trigger
+            id: on_4
+        sequence: !input command_on_4
+      - conditions:
+          - condition: trigger
+            id: off_4
+        sequence: !input command_off_4
