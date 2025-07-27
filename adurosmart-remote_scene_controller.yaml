@@ -36,6 +36,9 @@ blueprint:
       selector:
         action: {}
 
+mode: parallel
+max: 4  # Optioneel: maximaal aantal tegelijk actieve uitvoeringen
+
 trigger:
   - platform: device
     device_id: !input mqtt_device
