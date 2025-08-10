@@ -9,7 +9,7 @@ blueprint:
       selector:
         device:
           integration: mqtt
-          manufacturer: ROBB
+          # manufacturer: ROBB
           model_id: ROB_200-024-0
     command_on_1:
       name: Action for 'on_1'
